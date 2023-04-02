@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/jquery.bxslider.css" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      img {
+        max-width: 100%;
+        vertical-align: bottom;
+      }
+      h1,
+      p {
+        text-align: center;
+        margin: 20px auto;
+      }
+      .visual {
+        max-width: 960px;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>srcsetをbxsliderで動かす</h1>
+    <p>
+      641以上の時はpc-1.jpgを表示<br />
+      640以下の時は、sp-1.jpgを表示
+    </p>
+    <div class="visual">
+      <div class="bxslider">
+        <!-- ここは必ずこのクラス名 -->
+
+        <picture>
+          <source
+            media="(min-width:641px)"
+            srcset="img/pc-2.jpeg 960w"
+            sizes="100vw"
+          />
+          <img
+            media="(max-width:640px)"
+            srcset="img/sp-2.jpeg 640w"
+            sizes="100vh"
+            alt=""
+          />
+        </picture>
+
+        <picture>
+          <source
+            media="(min-width:641px)"
+            srcset="img/pc-01.jpg 960w"
+            sizes="100vw"
+          />
+          <img
+            media="(max-width:640px)"
+            srcset="img/sp-01.jpg 640w"
+            sizes="100vh"
+            alt=""
+          />
+        </picture>
+
+        <picture>
+          <source
+            media="(min-width:641px)"
+            srcset="img/pc-2.jpeg 960w"
+            sizes="100vw"
+          />
+          <img
+            media="(max-width:640px)"
+            srcset="img/sp-2.jpeg 640w"
+            sizes="100vh"
+            alt=""
+          />
+        </picture>
+      </div>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+      integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="js/jquery.bxslider.js"></script>
+    <script>
+      $(function () {
+        $(".bxslider").bxSlider({
+          mode: "fade", //画像の切り替わるモード
+          auto: false, //画像の動き
+          controls: true, //"Next" / "Prev" controls
+          pager: true, //黒い点を消す(pagenation off)
+          speed: 1500, //画像切り替わる瞬間
+          pause: 1500, //amount of time (in ms)
+        });
+      });
+    </script>
+  </body>
+</html>
